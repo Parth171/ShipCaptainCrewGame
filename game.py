@@ -4,12 +4,15 @@ author: Parth Sakpal
 date-created: 12/04/2023
 """
 
+
+from player import Player
+
 def startScreen():
     print("welcome to ship captain crew")
 
 def getPlayers():
     PLAYERS = []
-    INPUT = input("how many players playing? (2-5): ") # implement error check
+    INPUT = input("how many players playing? (2-5): ") # implement error check for this
 
 
 

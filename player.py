@@ -4,8 +4,8 @@ author: Parth Sakpal
 date-created: 11/30/2023
 """
 
-from dice import *
-from dice import Dice
+
+from dice import Dice #
 
 
 class Player:
