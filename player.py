@@ -12,45 +12,47 @@ class Player:
 
     def __init__(self, NAME):
         self.__playerName = NAME
-        self.__playerDices = []
-        self.__idleDices = []
+        self.playerDices = []
+
+        self.idleDices = []
+
+        self.playerGold = 0
+
+        ######
 
 
-    def returnName(self):
+    def createDices(self, NUM):
+        for i in range(NUM):
+            self.playerDices.append(Dice())
+
+    def getPlayerName(self):
         return self.__playerName
 
-    def createDies(self):
-        for i in range(5):
-            self.__playerDices.append(Dice())
+    def rollActiveDices(self):
 
-    def getActiceDices(self):
-        return self.__playerDices
+        for i in range(len(self.playerDices)):
+            self.playerDices[i].rollDie()
+
+    def getRoll(self):
+
+        for i in range(len(self.playerDices)):
+            self.playerDices[i] = self.playerDices[i].getDieNumber()
+
+        return self.playerDices
 
 
-    def rollActiveDies(self):
 
-        for i in range(len(self.__playerDices)):
-            self.__playerDices[i] = self.__playerDices.rollDie()
-
-        return self.__playerDices
-
-    def removeDie(self, i):
-        self.__idleDices.append(self.__playerDices[i])
-        self.__playerDices.pop(i)
 
 
 if __name__ == "__main__":
 
     PLAYER = Player("Parth")
 
-    PLAYER.createDies()
+    PLAYER.createDices(2)
 
-    PLAYER.rollActiveDies()
+    PLAYER.rollActiveDices()
 
-    print(PLAYER.getActiceDices())
-
-
-
+    print(PLAYER.getRoll())
 
 
 

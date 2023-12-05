@@ -9,20 +9,33 @@ from random import randint
 class Dice:
 
     def __init__(self):
-        self.__DiceNumber = 0
+        self.DiceNumber = 0
 
 
     def __str__(self):
-        return self.__DiceNumber
+        return self.DiceNumber
+
+
 
 
     def rollDie(self):
-        self.__DiceNumber = randint(1, 6)
-        return self.__DiceNumber
+        self.DiceNumber = randint(1, 6)
+
+    def getDieNumber(self):
+        return self.DiceNumber
 
 
 if __name__ == "__main__":
     DICE = Dice()
+
+    DICES = [Dice(), Dice(), Dice()]
+
+    for i in range(len(DICES)):
+        DICES[i].rollDie()
+
+
+
+
 
 
 
