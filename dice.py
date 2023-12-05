@@ -28,7 +28,7 @@ class Dice:
 if __name__ == "__main__":
     DICE = Dice()
 
-    DICES = [Dice(), Dice(), Dice()] # works
+    DICES = [Dice(), Dice(), Dice()] # it works
 
     for i in range(len(DICES)):
         DICES[i].rollDie()

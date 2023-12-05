@@ -6,6 +6,7 @@ date-created: 12/04/2023
 
 
 from player import Player
+from dice import Dice
 
 def startScreen():
     print("welcome to ship captain crew")

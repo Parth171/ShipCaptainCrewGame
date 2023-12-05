@@ -5,7 +5,7 @@ date-created: 11/30/2023
 """
 
 
-from dice import Dice #
+from dice import Dice # import this
 
 
 class Player:
