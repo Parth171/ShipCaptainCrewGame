@@ -12,17 +12,19 @@ class Dice:
         self.DiceNumber = 0
 
 
-    def __str__(self):
-        return self.DiceNumber
-
 
 
 
     def rollDie(self):
-        self.DiceNumber = randint(1, 6)
-
-    def getDieNumber(self):
+        self.DiceNumber = randint(1,6)
         return self.DiceNumber
+
+
+
+    def __str__(self):
+        return self.DiceNumber
+
+
 
 
 if __name__ == "__main__":
