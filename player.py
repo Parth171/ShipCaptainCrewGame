@@ -4,8 +4,8 @@ author: Parth Sakpal
 date-created: 11/30/2023
 """
 
-
-from dice import Dice # import this
+# Imports the Dice Class
+from dice import Dice
 
 
 class Player:
@@ -13,17 +13,11 @@ class Player:
     def __init__(self, NAME):
         self.__playerName = NAME
 
-        self.playerDices = []
+        self.playerDices = [] # Contains all the player Dices
 
-        self.activeDices = []
+        self.activeDices = [] # Contains the active playing Dices of the user
 
         self.playerGold = 0
-
-        ######
-
-
-
-
 
 
     def createDices(self, NUM):
@@ -52,6 +46,8 @@ class Player:
 
 
 if __name__ == "__main__":
+
+    ###### EVERYTHING BELOW IS FROM ME TESTING THIS CLASS #####
 
     DATA = [Dice(), Dice(), Dice()]
 
