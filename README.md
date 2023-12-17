@@ -27,5 +27,5 @@ In this feature, the user has the option play against the computer, allowing for
 
 ## My Experience with this Project
 
-Personally, I found this project to be on the difficult end of the spectrum when comparing it to the other multiday projects we have done in the past. Through the in class lessons and the notes we made, I understood the concept of OOP but the implementation of what we learned what initially difficult me. Through this project, and the through the trail and error, I was able to better understand how to incorporate OOP into my program. 
+Personally, I found this project to be on the difficult end of the spectrum when comparing it to the other multiday projects we have done in the past. Through the in class lessons and the notes we made, I understood the concept of OOP but the implementation of what we learned whas initially difficult me. Through this project, and the through the trail and error, I was able to better understand how to incorporate OOP into my program. I found great value in this project because I was able to learn through my own mistakes and research, which allowed me to better grasp OOP concepts and learn not just what they are, but how they can be used to enhance the program.
 
