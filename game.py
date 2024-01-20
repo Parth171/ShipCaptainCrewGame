@@ -40,7 +40,7 @@ class Play:
 
 
 
-            self.pCount = self.pCount - 1
+
 
             if not self.shipFound:
                 if 6 in ROLL:
@@ -67,7 +67,7 @@ class Play:
 
             if self.allFound == True:
 
-                while self.pCount > 1:
+                if self.pCount == 3:
 
                     self.player.createDices(2)
                     input("Press ENTER to roll for gold!")
@@ -78,7 +78,7 @@ class Play:
                     self.player.playerGold = sum(GOLD_ROLL)
                     print(self.player.playerGold)
 
-                    self.pCount -= 1
+
 
                     INPUT = input("ROLL AGAIN? (Y/N): ")
 
@@ -105,7 +105,7 @@ class Play:
 
 
 
-                if self.pCount == 1:
+                if self.pCount == 2:
                     self.player.createDices(2)
                     input("Press ENTER to roll for gold!")
                     GOLD_ROLL = self.player.rollActiveDices()
@@ -113,6 +113,26 @@ class Play:
                     self.player.playerGold = sum(GOLD_ROLL)
                     print(f"You got {self.player.playerGold} pieces of gold!")
                     return self.player.playerGold
+
+                if self.pCount == 1:
+                    if len(self.player.activeDices) == 5:
+                        self.player.activeDices.remove(6)
+                        self.player.activeDices.remove(5)
+                        self.player.activeDices.remove(4)
+                        self.player.playerGold = sum(self.player.activeDices)
+                    if len(self.player.activeDices) == 4:
+                        self.player.activeDices.remove(5)
+                        self.player.activeDices.remove(4)
+                        self.player.playerGold = sum(self.player.activeDices)
+
+                    if len(self.player.activeDices) == 3:
+                        self.player.activeDices.remove(4)
+                        self.player.playerGold = sum(self.player.activeDices)
+
+                    print(f"You got {self.player.playerGold} pieces of gold!")
+                    return self.player.playerGold
+
+            self.pCount = self.pCount - 1
 
 
 
