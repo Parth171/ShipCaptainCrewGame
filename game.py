@@ -136,7 +136,7 @@ class Play:
 
 
 
-        print("\nSorry you used up all three rolls. You get no gold this round :(") # This is if the user gets no gold throughout the gameplay
+        print("\nSorry you used up all three rolls but this couldn't find all Three elements. You get no gold this round :(") # This is if the user gets no gold throughout the gameplay
         return 0
 
     def computer(self):
