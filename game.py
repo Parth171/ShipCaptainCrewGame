@@ -25,7 +25,7 @@ class Play:
     def run(self):
 
 
-        print(f"\n{self.player}'s roll. ")
+        print(f"\n **{self.player}'s roll. ** ")
         self.player.createDices(5)
 
         while self.pCount > 0:
@@ -94,13 +94,13 @@ class Play:
                         print(f"Your New Roll: {GOLD_ROLL}")
 
                         self.player.playerGold = sum(GOLD_ROLL)
-                        print(f"You got {self.player.playerGold} pieces of gold!")
+                        print(f"You got {self.player.playerGold} pieces of gold this round!")
                         return self.player.playerGold
 
 
                     if INPUT == "N":
 
-                        print(f"You got {self.player.playerGold} pieces of gold!")
+                        print(f"You got {self.player.playerGold} pieces of gold this round!")
                         return self.player.playerGold
 
 
@@ -243,13 +243,13 @@ class bestOfThree:
             self.p2Gold += Play(self.player2).run()
 
         if self.p1Gold > self.p2Gold:
-            print(f"\n {self.player1.getPlayerName()} has won with {self.p1Gold} gold!")
+            print(f"\n {self.player1.getPlayerName()} has won with a TOTAL of {self.p1Gold} gold!")
 
         if self.p1Gold < self.p2Gold:
-            print(f"\n {self.player2.getPlayerName()} has won with {self.p2Gold} gold!")
+            print(f"\n {self.player2.getPlayerName()} has won with a TOTAL of {self.p2Gold} gold!")
 
         if self.p1Gold == self.p2Gold:
-            print("No one won this round :(")
+            print("\nNo one won this round :(")
 
 
 
