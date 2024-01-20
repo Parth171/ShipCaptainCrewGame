@@ -25,22 +25,26 @@ class Play:
     def run(self):
 
 
-        print(f"\n{self.player} roll. Press ENTER to begin the round!")
+        print(f"\n{self.player}'s roll. ")
         self.player.createDices(5)
 
         while self.pCount > 0:
 
 
-            input("Press ENTER to roll you dice.") # Gets user to press ENTER to maximize user engagement with the program
+            input("\nPress ENTER to roll you dice.") # Gets user to press ENTER to maximize user engagement with the program
             ROLL = self.player.rollActiveDices()
 
+
             print(f"Your Roll was: {ROLL}")
+
+
+
 
             self.pCount = self.pCount - 1
 
             if not self.shipFound:
                 if 6 in ROLL:
-                    print("\nShip found!\n")
+                    print("\nShip found! The Ship dice is held!\n")
                     self.player.createDices(4)
                     self.shipFound = True
 
@@ -48,14 +52,14 @@ class Play:
             if self.shipFound == True:
                 if not self.captainFound:
                     if 5 in ROLL:
-                        print("\nCaptain found!\n")
+                        print("\nCaptain found! The Captain dice is held!\n")
                         self.player.createDices(3)
                         self.captainFound = True
 
             if self.captainFound == True:
                 if not self.allFound:
                     if 4 in ROLL:
-                        print("\nCrew found!\n")
+                        print("\nCrew found! The Crew dice is held!\n")
                         self.player.createDices(2)
                         self.allFound = True
 
@@ -90,17 +94,14 @@ class Play:
                         print(f"Your New Roll: {GOLD_ROLL}")
 
                         self.player.playerGold = sum(GOLD_ROLL)
-                        print(f"you got {self.player.playerGold} pieces of gold!")
+                        print(f"You got {self.player.playerGold} pieces of gold!")
                         return self.player.playerGold
 
 
                     if INPUT == "N":
-                        if self.player.playerGold == 0:
-                            print("\nSorry you got no gold this round :(")
-                            return 0
-                        else:
-                            print(f"you got {self.player.playerGold} pieces of gold!")
-                            return self.player.playerGold
+
+                        print(f"You got {self.player.playerGold} pieces of gold!")
+                        return self.player.playerGold
 
 
 
@@ -110,14 +111,12 @@ class Play:
                     GOLD_ROLL = self.player.rollActiveDices()
                     print(f"Your Gold Roll: {GOLD_ROLL}")
                     self.player.playerGold = sum(GOLD_ROLL)
-                    if self.player.playerGold == 0:
-                        print("\nSorry you got no gold this round :(")
-                        return 0
-                    else:
-                        print(f"you got {self.player.playerGold} pieces of gold!")
-                        return self.player.playerGold
+                    print(f"You got {self.player.playerGold} pieces of gold!")
+                    return self.player.playerGold
 
-        print("\nSorry you got no gold this round :(") # This is if the user gets no gold throughout the gameplay
+
+
+        print("\nSorry you used up all three rolls. You get no gold this round :(") # This is if the user gets no gold throughout the gameplay
         return 0
 
     def computer(self):
@@ -233,7 +232,12 @@ class bestOfThree:
 
     def run(self):
 
+
+
         for i in range(self.rounds):
+
+            print(f"\n ROUND {i+1}")
+
             self.p1Gold += Play(self.player1).run()
 
             self.p2Gold += Play(self.player2).run()
@@ -286,13 +290,16 @@ class Game:
 
             ## -- INPUTS -- ##
 
-            print("""\n \nWelcome to the Game please select the game mode you want to play:
+
+            print("""\n \n
+            -----------------------------------------------------------------------------------------------
+            Welcome to the Game please select the game mode you want to play:
             
-                1. Classic Game (2-5 Players)
-                2. Best of 3 Rounds (Play multiple rounds and the player who scores the most in total wins)
-                3. Single Player (Play the computer!)
-                4. Exit
-            
+                1. Classic Game (2 Players; 1 Round)
+                2. Best-Of Rounds (Play multiple rounds and the player who scores the most in total wins)
+                3. Exit
+                
+            -----------------------------------------------------------------------------------------------
             """)
 
             INPUT = input("> ")
@@ -306,13 +313,12 @@ class Game:
 
                 PLAYERS = []
                 INDEX = []
-                INPUT = int(input("How many players playing? (2-5): "))  # Asks for the number of players playing
 
-                for i in range(INPUT):
+                for i in range(2):
                     NAME = input(f"What is Player {i + 1}'s Name?: ")
                     PLAYERS.append(Player(NAME))
 
-                for i in range(INPUT):
+                for i in range(2):
                     RUN = Play(PLAYERS[i]).run()
                     INDEX.append(RUN)
 
@@ -325,21 +331,16 @@ class Game:
 
                     print(f"\n{PLAYERS[MAXIMUM].getPlayerName()} has won!")
 
+
             if INPUT == 2:
                 PLAYERS = []
+                ROUNDS = int(input("How many 'best-of' rounds would you like to play?: "))
                 for i in range(2):
                     NAME = input(f"What is Player {i + 1}'s Name?: ")
                     PLAYERS.append(Player(NAME))
-
-                bestOfThree(PLAYERS[0], PLAYERS[1], 3).run()
+                bestOfThree(PLAYERS[0], PLAYERS[1], ROUNDS).run()
 
             if INPUT == 3:
-
-                NAME = input(f"What is the Player's Name?: ")
-                PLAYER = Player(NAME)
-                SinglePlayer(PLAYER).run()
-
-            if INPUT == 4:
                 print("Thanks for playing!")
                 exit()
 
@@ -351,7 +352,7 @@ def getInput(INPUT):
     """
 
 
-    if INPUT == "1" or INPUT == "2" or INPUT == "3" or INPUT == "4":
+    if INPUT == "1" or INPUT == "2" or INPUT == "3":
         return int(INPUT)
     else:
         print("Enter a choice from the menu!")
