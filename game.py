@@ -332,6 +332,7 @@ class Game:
                     print(f"\n{PLAYERS[MAXIMUM].getPlayerName()} has won!")
 
 
+            # Best-of Rounds
             if INPUT == 2:
                 PLAYERS = []
                 ROUNDS = int(input("How many 'best-of' rounds would you like to play?: "))
